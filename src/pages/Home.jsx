@@ -14,7 +14,7 @@ export const Home = () => {
 
     const getPokemons = () => {
         let endpoints = []
-        for(var i = 1; i < 200; i++) {
+        for(var i = 1; i < 31; i++) {
             endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
        axios.all(endpoints.map(endpoint => axios.get(endpoint))).then((res) => setPokemons(res)).catch((err) => console.log(err))

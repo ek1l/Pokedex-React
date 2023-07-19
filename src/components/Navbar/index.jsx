@@ -61,7 +61,7 @@ export default function Navbar({pokemonFilter}) {
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%" >
          <div></div>
-          <Search onChange={(e) => pokemonFilter(e.target.value)}>
+          <Search onChange={(e) => pokemonFilter(e.target.value.toLowerCase())}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
