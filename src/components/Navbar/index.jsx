@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -54,22 +55,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({pokemonFilter}) {
+export default function Navbar({pokemonFilter, hideSearch}) {
   return (
     <Box sx={{ flexGrow: 1,marginBottom:'2rem' }}>
       <AppBar position="static" sx={{backgroundColor:"black"}}>
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%" >
          <div></div>
-          <Search onChange={(e) => pokemonFilter(e.target.value.toLowerCase())}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Pesquisando..."
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+         {!hideSearch &&(
+                   <Search onChange={(e) => pokemonFilter(e.target.value.toLowerCase())}>
+                   <SearchIconWrapper>
+                     <SearchIcon />
+                   </SearchIconWrapper>
+                   <StyledInputBase
+                     placeholder="Pesquisando..."
+                     inputProps={{ 'aria-label': 'search' }}
+                   />
+                 </Search>)}
           </Box>
         </Toolbar>
       </AppBar>
